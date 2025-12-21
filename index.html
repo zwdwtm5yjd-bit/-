@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2026 马年新春限定豆单 | 水墨春秋</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&family=Noto+Serif+SC:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cny-red: #982819;       /* 故宫红/朱砂色 */
+            --cny-gold: #C5A065;      /* 哑光金 */
+            --cny-ink: #1A1A1A;       /* 浓墨 */
+            --paper-bg: #F5F2EB;      /* 宣纸陈旧色 */
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: var(--paper-bg);
+            color: var(--cny-ink);
+            overflow-x: hidden;
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        
+        .serif { font-family: 'Noto Serif SC', serif; }
+        .calligraphy { font-family: 'Zhi Mang Xing', cursive; }
+
+        .writing-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            letter-spacing: 0.2em; /* 手机上稍微减小字间距 */
+            line-height: 1.8;
+        }
+
+        /* 隐藏滚动条但保留功能 (移动端美观) */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(139, 35, 35, 0.3); border-radius: 2px; }
+
+        .fade-in-up {
+            animation: fadeInUp 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hover-card {
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            border: 1px solid rgba(139, 35, 35, 0.05);
+        }
+        /* 仅在支持 hover 的设备上启用悬浮效果 */
+        @media (hover: hover) {
+            .hover-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px -10px rgba(139, 35, 35, 0.15);
+                border-color: rgba(184, 134, 11, 0.3);
+            }
+        }
+
+        .grunge-texture {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.25'/%3E%3C/svg%3E");
+        }
+
+        /* 印章样式 */
+        .seal-brand {
+            position: relative;
+            display: inline-block;
+            border: 3px solid #8B2323;
+            padding: 6px;
+            background-color: transparent;
+            color: #8B2323;
+        }
+        .seal-brand-inner {
+            border: 1px dashed #8B2323;
+            padding: 2px;
+            width: 60px;
+            height: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            align-items: center;
+            justify-items: center;
+        }
+        .seal-brand-char {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 1;
+            transform: scale(0.8, 1.2); 
+        }
+
+        /* 阅 - 漆印 */
+        .seal-yue-wrapper {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+            /* 手机默认相对定位，桌面绝对定位 */
+            display: block; 
+        }
+        .seal-yue-wrapper:active { transform: scale(0.95); }
+        
+        .seal-yue {
+            width: 120px; /* 手机略小一点 */
+            height: 120px;
+            background-color: #982819;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(152, 40, 25, 0.3), inset 0 0 20px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255,255,255,0.1);
+            margin: 0 auto;
+        }
+        .seal-yue-char {
+            font-family: 'Zhi Mang Xing', cursive;
+            color: #F3F0E6;
+            font-size: 70px;
+            line-height: 1;
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.7'/%3E%3C/svg%3E");
+            opacity: 0.95;
+        }
+
+        .ink-wash {
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(139, 35, 35, 0.02) 0%, transparent 60%),
+                radial-gradient(circle at 10% 90%, rgba(26, 26, 26, 0.04) 0%, transparent 50%);
+            position: absolute; inset: 0; z-index: 0; pointer-events: none;
+        }
+
+        .flavor-tag {
+            border-radius: 2px;
+            font-size: 0.65rem;
+            padding: 1px 5px;
+            border: 1px solid;
+            background: rgba(255,255,255,0.5);
+            white-space: nowrap;
+        }
+        .flavor-tag-citrus { color: #D97706; border-color: #D97706; }
+        .flavor-tag-floral { color: #9D174D; border-color: #9D174D; }
+        .flavor-tag-sweet { color: #92400E; border-color: #92400E; }
+        .flavor-tag-winey { color: #6B21A8; border-color: #6B21A8; }
+        .flavor-tag-nutty { color: #5D4037; border-color: #5D4037; }
+        .flavor-tag-tea { color: #065F46; border-color: #065F46; }
+        .flavor-tag-cocoa { color: #451a03; border-color: #451a03; }
+
+        .text-justify-custom { text-align: justify; text-justify: inter-ideograph; }
+        .music-spin { animation: spin 6s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .pulse-slow { animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        /* 桌面端大屏优化 */
+        @media (min-width: 768px) {
+            .writing-vertical { letter-spacing: 0.3em; line-height: 2; }
+            .seal-yue { width: 140px; height: 140px; }
+            .seal-yue-char { font-size: 80px; }
+            .seal-brand-inner { width: 70px; height: 70px; }
+            .seal-brand-char { font-size: 24px; }
+            /* 桌面端将印章绝对定位居中 */
+            .seal-yue-wrapper-desktop {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 20;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-900">
+
+    <div class="fixed top-0 w-full h-[4px] bg-[#8B2323] z-[60] shadow-sm"></div>
+
+    <nav class="fixed w-full z-50 bg-[#F3F0E6]/95 backdrop-blur-sm border-b border-[#D4AF37]/20 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="flex justify-between h-16 md:h-24 items-center">
+                
+                <div class="flex items-center gap-2 cursor-pointer group" onclick="toggleMusic()">
+                    <div id="music-icon-wrapper" class="w-8 h-8 flex items-center justify-center border border-[#2B2220]/20 rounded-full transition-colors group-hover:border-[#8B2323]">
+                        <i id="music-icon" class="fas fa-music text-xs text-[#2B2220] group-hover:text-[#8B2323]"></i>
+                    </div>
+                    <span id="music-text" class="hidden md:inline text-xs text-[#5D4037] font-serif tracking-widest group-hover:text-[#8B2323] transition-colors">聆听</span>
+                </div>
+
+                <div class="flex space-x-6 md:space-x-10 items-center">
+                    <a href="#menu" class="text-[#2B2220] hover:text-[#8B2323] text-sm font-serif tracking-[0.2em] transition-colors relative group">
+                        <span>新春豆单</span>
+                    </a>
+                    
+                    <button onclick="openBookingModal()" class="text-[#2B2220] hover:text-[#8B2323] text-xs md:text-sm font-serif tracking-[0.1em] md:tracking-[0.2em] border border-[#2B2220] hover:border-[#8B2323] px-3 py-1.5 md:px-6 md:py-2 rounded-sm hover:bg-[#8B2323] hover:text-[#F3F0E6] transition-all">
+                        <span class="md:hidden">联系</span>
+                        <span class="hidden md:inline">联系我们</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen md:min-h-[90vh] w-full overflow-hidden flex flex-col md:flex-row items-center justify-center pt-20 pb-10 md:py-0">
+        <div class="ink-wash"></div>
+        
+        <div class="absolute top-0 left-20 w-[1px] h-[40vh] bg-[#2B2220] opacity-10 hidden md:block"></div>
+        <div class="absolute bottom-0 right-20 w-[1px] h-[40vh] bg-[#2B2220] opacity-10 hidden md:block"></div>
+
+        <div class="max-w-7xl mx-auto px-6 w-full h-full relative z-10 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-0">
+            
+            <div class="order-1 md:absolute md:left-1/2 md:top-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 z-20 mt-8 md:mt-0">
+                <div class="fade-in-up" style="animation-delay: 0.1s;">
+                    <a href="#menu" class="seal-yue-wrapper block" title="点击查看豆单">
+                        <div class="seal-yue grunge-texture">
+                            <span class="seal-yue-char">阅</span>
+                        </div>
+                        <div class="text-center mt-4 md:mt-6">
+                            <i class="fas fa-chevron-down text-[#982819] text-opacity-50 text-sm pulse-slow"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="order-2 flex-1 flex flex-col items-center md:items-start md:pl-20 md:justify-center md:h-[60vh]">
+                <div class="fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="flex gap-6 md:gap-10 justify-center md:justify-start">
+                        <div class="writing-vertical text-3xl md:text-4xl text-[#1A1A1A] font-serif tracking-[0.2em] leading-loose">
+                            策马迎新春
+                        </div>
+                        <div class="writing-vertical text-3xl md:text-4xl text-[#1A1A1A] font-serif tracking-[0.2em] leading-loose opacity-80">
+                            咖香伴流年
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-3 flex-1 flex flex-col items-center md:items-end md:pr-20 md:justify-center md:h-[60vh] gap-8">
+                
+                <div class="fade-in-up" style="animation-delay: 0.5s;">
+                    <div class="flex flex-col items-center gap-4">
+                        <div class="flex gap-3 md:hidden mb-4">
+                             <div class="writing-vertical text-xs text-[#5D4037] font-serif tracking-[0.3em] opacity-60">
+                                丙午年制
+                            </div>
+                            <div class="writing-vertical text-xs text-[#982819] border border-[#982819] p-1 scale-90 h-auto font-serif">
+                                大吉
+                            </div>
+                        </div>
+
+                        <div class="seal-brand grunge-texture transform rotate-1">
+                            <div class="seal-brand-inner">
+                                <div class="seal-brand-char">水</div>
+                                <div class="seal-brand-char">墨</div>
+                                <div class="seal-brand-char">春</div>
+                                <div class="seal-brand-char">秋</div>
+                            </div>
+                        </div>
+                        <div class="h-16 w-[1px] bg-[#982819] opacity-30 mt-4 hidden md:block"></div>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex gap-3 mt-8 fade-in-up" style="animation-delay: 0.7s;">
+                    <div class="writing-vertical text-sm text-[#5D4037] font-serif tracking-[0.3em] opacity-60">
+                        二零二六 · 丙午年制
+                    </div>
+                    <div class="writing-vertical text-xs text-[#982819] border border-[#982819] p-1 scale-90 h-auto font-serif">
+                        大吉
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+
+    <section id="menu" class="py-20 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 md:mb-24 relative">
+                <span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-7xl md:text-9xl text-[#8B2323] opacity-[0.03] calligraphy pointer-events-none whitespace-nowrap select-none">
+                    新春佳节
+                </span>
+                <h2 class="text-2xl md:text-4xl text-[#2B2220] serif tracking-[0.3em] relative z-10 font-bold">
+                    新春 · <span class="text-[#8B2323]">廿味</span>
+                </h2>
+                <div class="w-6 h-[3px] bg-[#B8860B] mx-auto mt-6 md:mt-8"></div>
+            </div>
+
+            <div id="bean-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 md:gap-y-16">
+                </div>
+        </div>
+    </section>
+
+    <div id="bean-modal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-[#1a1a1a]/70 backdrop-blur-sm transition-opacity" id="modal-overlay"></div>
+        <div class="relative min-h-screen flex items-end md:items-center justify-center p-0 md:p-4">
+            <div class="bg-[#F3F0E6] w-full max-w-5xl shadow-2xl overflow-hidden transform transition-all relative flex flex-col md:flex-row max-h-[85vh] md:max-h-[80vh] border-t-4 md:border border-[#8B2323] md:border-[#8B2323]/20 rounded-t-2xl md:rounded-none">
+                
+                <button onclick="closeModal()" class="absolute top-4 right-4 z-30 text-white md:text-gray-400 hover:text-[#8B2323] transition-colors w-10 h-10 flex items-center justify-center bg-black/20 md:bg-transparent rounded-full md:rounded-none backdrop-blur-sm md:backdrop-filter-none">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+
+                <div class="md:w-5/12 relative h-56 md:h-auto bg-[#EAE5D9] flex-shrink-0">
+                    <img id="modal-image" src="" alt="" class="absolute inset-0 w-full h-full object-cover grayscale-[10%] contrast-[1.05]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute bottom-6 left-6 text-[#F3F0E6] pr-8">
+                        <div id="modal-process-badge" class="inline-block px-2 py-0.5 border border-[#B8860B] text-[#B8860B] text-[10px] md:text-xs font-serif mb-2 tracking-widest bg-black/20 backdrop-blur-sm"></div>
+                        <h3 id="modal-title" class="text-3xl md:text-5xl calligraphy leading-tight mb-1 text-white drop-shadow-md"></h3>
+                        <p id="modal-origin" class="text-xs md:text-sm opacity-80 font-light flex items-center gap-2 text-[#B8860B] font-serif tracking-widest mt-1"></p>
+                    </div>
+                </div>
+
+                <div class="md:w-7/12 p-6 md:p-14 overflow-y-auto custom-scrollbar bg-[#F3F0E6]">
+                    <div class="flex justify-between items-center mb-6 md:mb-10 border-b border-[#8B2323]/20 pb-4 md:pb-6">
+                        <div>
+                            <p class="text-[10px] text-[#8B2323] uppercase tracking-widest mb-1 opacity-70">庄园 Estate</p>
+                            <p id="modal-estate" class="font-bold text-[#2B2220] text-lg md:text-xl font-serif"></p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-[10px] text-[#8B2323] uppercase tracking-widest mb-1 opacity-70">处理 Process</p>
+                            <p id="modal-process" class="font-bold text-[#2B2220] text-lg md:text-xl font-serif"></p>
+                        </div>
+                    </div>
+
+                    <div class="mb-6 md:mb-10">
+                        <div id="modal-flavors" class="flex flex-wrap gap-2 md:gap-3"></div>
+                    </div>
+
+                    <div class="prose prose-stone max-w-none text-justify-custom text-[#5D4037] leading-relaxed text-sm md:text-base">
+                        <div id="modal-description"></div>
+                    </div>
+                    <div class="h-8"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="booking-modal" class="fixed inset-0 z-[110] hidden" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-[#1a1a1a]/80 backdrop-blur-sm transition-opacity" onclick="closeBookingModal()"></div>
+        <div class="relative min-h-screen flex items-center justify-center p-4">
+            <div class="bg-[#F3F0E6] w-full max-w-sm md:max-w-md shadow-2xl p-8 md:p-10 text-center transform transition-all scale-95 opacity-0 duration-300 relative border-2 border-[#B8860B]/50 rounded-sm">
+                <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-[#8B2323] transition-colors"><i class="fas fa-times"></i></button>
+
+                <div class="mb-6 flex justify-center transform scale-75">
+                    <div class="seal-brand grunge-texture" style="border-color: #8B2323;">
+                        <div class="seal-brand-inner" style="border-color: #8B2323;">
+                            <div class="seal-brand-char" style="color: #8B2323;">水</div>
+                            <div class="seal-brand-char" style="color: #8B2323;">墨</div>
+                            <div class="seal-brand-char" style="color: #8B2323;">春</div>
+                            <div class="seal-brand-char" style="color: #8B2323;">秋</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="serif text-xl md:text-2xl text-[#2B2220] mb-2 font-serif tracking-[0.3em] font-bold">联系我们</h3>
+                <div class="w-6 h-[2px] bg-[#8B2323] mx-auto mb-8"></div>
+                
+                <div class="space-y-6 mb-8">
+                    <div>
+                        <p class="text-[#8B2323] text-xs uppercase tracking-widest mb-1 opacity-70">Telephone</p>
+                        <a href="tel:18198297917" class="text-2xl md:text-3xl font-bold text-[#2B2220] hover:text-[#8B2323] transition-colors font-serif tracking-widest">181 9829 7917</a>
+                    </div>
+                    <div class="inline-block px-4 py-1 border border-[#5D4037]/20 rounded-full text-xs text-[#5D4037]">
+                        <i class="fab fa-weixin mr-1"></i> 微信同号
+                    </div>
+                </div>
+                
+                <button onclick="closeBookingModal()" class="w-full bg-[#2B2220] text-[#F3F0E6] py-3 hover:bg-[#8B2323] transition-colors text-sm tracking-[0.2em]">
+                    知 晓
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-[#2B2220] text-[#B8860B] py-12 md:py-16 border-t-4 border-[#8B2323]">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="mb-6 opacity-30 hover:opacity-80 transition-opacity duration-500 transform scale-50 origin-center">
+                <div class="seal-brand" style="border-color: #555; padding: 4px;">
+                    <div class="seal-brand-inner" style="border-color: #555; width: 40px; height: 40px;">
+                        <div class="seal-brand-char" style="color: #555; font-size: 14px;">水</div>
+                        <div class="seal-brand-char" style="color: #555; font-size: 14px;">墨</div>
+                        <div class="seal-brand-char" style="color: #555; font-size: 14px;">春</div>
+                        <div class="seal-brand-char" style="color: #555; font-size: 14px;">秋</div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-[10px] md:text-xs text-[#F3F0E6]/30 tracking-widest font-serif">&copy; 2026 SHUI MO CHUN QIU.</p>
+        </div>
+    </footer>
+
+    <script>
+        const musicConfig = {
+            url: "https://music.163.com/song/media/outer/url?id=4873822.mp3" 
+        };
+
+        const beansData = [
+            {
+                id: 1,
+                name: "蜂蜜柑橘",
+                origin: "埃塞俄比亚",
+                estate: "克希尔",
+                process: "水洗",
+                flavors: ["柑橘", "焦糖", "柠檬皮", "蜂蜜"],
+                image: "69478daabf769.jpg", 
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478daabf769.jpg",
+                description: `<h4>产地故事</h4><p>克希尔产区（Kochere）位于埃塞俄比亚南部，海拔1900-2100米。火山灰土壤与昼夜温差赋予了咖啡独特的“明亮酸度”与“清新果香”。</p><h4>风味档案</h4><p>入口即是鲜明的柠檬皮香气，紧接着蜂蜜般的甜感包裹口腔。</p>`
+            },
+            {
+                id: 2,
+                name: "花漾",
+                origin: "埃塞俄比亚",
+                estate: "戈帝贝",
+                process: "48h 厌氧日晒",
+                flavors: ["玫瑰", "荔枝", "芒果", "红心芭乐"],
+                image: "69478dfb41ecf.jpg", 
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478dfb41ecf.jpg",
+                description: `<h4>匠心工艺</h4><p>48小时厌氧日晒处理，激发出了惊人的热带水果与花香。</p><h4>风味图谱</h4><p>前调是扑面而来的玫瑰花香，随后是荔枝与百香果的甜美。</p>`
+            },
+            {
+                id: 3,
+                name: "红蜜阿朵",
+                origin: "埃塞俄比亚",
+                estate: "阿多斯",
+                process: "红蜜",
+                flavors: ["菠萝", "柚子", "桂圆", "芒果"],
+                image: "69478dfb35778.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478dfb35778.jpg",
+                description: `<h4>风味解析</h4><p>入口瞬间，清新的柚子与菠萝率先登场。红蜜处理保留了极佳的甜度，尾韵沉淀出桂圆的温润。</p>`
+            },
+            {
+                id: 4,
+                name: "格兰瑰夏",
+                origin: "埃塞俄比亚",
+                estate: "格拉娜",
+                process: "水洗",
+                flavors: ["草莓", "苹果", "柠檬", "花香"],
+                image: "69478dab96e6a.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478dab96e6a.jpg",
+                description: `<h4>风味品鉴</h4><p>浓郁而华丽的复合香气，新鲜草莓的甜香与青苹果的清新交织，酸度柔和且充满活力。</p>`
+            },
+            {
+                id: 5,
+                name: "秋野浆果颂",
+                origin: "萨尔瓦多",
+                estate: "帕卡斯",
+                process: "日晒",
+                flavors: ["草莓", "甜橙", "杏子", "莓果"],
+                image: "69478dfb3132b.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478dfb3132b.jpg",
+                description: `<h4>风味解析</h4><p>中段是“浆果炸弹”的爆发——草莓酱般的浓甜包裹舌尖，干净利落。</p>`
+            },
+            {
+                id: 6,
+                name: "黑曜石",
+                origin: "哥斯达黎加",
+                estate: "拉斯拉哈斯",
+                process: "黑蜜",
+                flavors: ["葡萄柚", "酒香", "蓝莓", "坚果"],
+                image: "69478dab4e92a.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478dab4e92a.jpg",
+                description: `<h4>工艺</h4><p>黑蜜处理赋予咖啡豆更深邃的甜感与醇厚酒体。蓝莓酱般的风味尤为突出。</p>`
+            },
+            {
+                id: 7,
+                name: "小红莓",
+                origin: "哥伦比亚",
+                estate: "棕榈树庄园",
+                process: "厌氧乳酸菌",
+                flavors: ["小红莓", "黑醋栗", "奶糖"],
+                image: "69478e0ea70bf.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478e0ea70bf.jpg",
+                description: `<h4>风味</h4><p>初尝如咬开一颗新鲜小红莓，酸甜可口。乳酸菌发酵带来了柔和的奶糖香。</p>`
+            },
+            {
+                id: 8,
+                name: "夏洛特",
+                origin: "印度尼西亚",
+                estate: "印尼铁皮卡",
+                process: "湿刨法",
+                flavors: ["柑橘", "香料", "牛奶"],
+                image: "69478e0d81e99.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478e0d81e99.jpg",
+                description: `<h4>风味</h4><p>明亮的柑橘酸调率先绽放，伴随印尼经典的香料风味，尾韵呈现牛奶般的丝滑。</p>`
+            },
+            {
+                id: 9,
+                name: "远景有落樱",
+                origin: "哥伦比亚",
+                estate: "远景庄园",
+                process: "水果酵母厌氧",
+                flavors: ["覆盆子", "榛子巧克力", "洛神花"],
+                image: "69478e1f35396.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478e1f35396.jpg",
+                description: `<h4>创新工艺</h4><p>发酵时特别加入洛神花花瓣。入口轻盈，像春日枝头初绽的落樱。</p>`
+            },
+            {
+                id: 10,
+                name: "棕榈树与百香果",
+                origin: "哥伦比亚",
+                estate: "棕榈树庄园",
+                process: "百香果浸渍",
+                flavors: ["百香果", "桃子", "绿茶"],
+                image: "69478e2048443.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478e2048443.jpg",
+                description: `<h4>风味</h4><p>每一颗豆子都成了“会呼吸的热带果篮”。像咬下一口熟透的水蜜桃，伴随绿茶清冽。</p>`
+            },
+            {
+                id: 11,
+                name: "葡萄仙子",
+                origin: "哥伦比亚",
+                estate: "弗洛缇娜",
+                process: "水果厌氧",
+                flavors: ["葡萄干", "黑巧", "莓果酱", "乌龙茶"],
+                image: "69478dfc034ce.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478dfc034ce.jpg",
+                description: `<h4>风味</h4><p>入口感受到葡萄干与枣干的温暖甜润，黑巧克力的丝滑醇厚度缓缓展现。</p>`
+            },
+            {
+                id: 12,
+                name: "暮光之橙",
+                origin: "哥伦比亚",
+                estate: "希望庄园",
+                process: "水洗",
+                flavors: ["荔枝", "甘蔗", "甜橙"],
+                image: "69478dfc1195c.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478dfc1195c.jpg",
+                description: `<h4>风味</h4><p>甜橙的明亮，像剥开一颗阳光晒透的冰糖橙。余韵里还留着甘蔗的清甜。</p>`
+            },
+            {
+                id: 13,
+                name: "长安荔枝",
+                origin: "哥伦比亚",
+                estate: "秘密庄园",
+                process: "荔枝发酵蜜处理",
+                flavors: ["荔枝汽水", "柑橘", "黄糖甜感", "荔枝果茶"],
+                image: "69478e1f93645.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478e1f93645.jpg",
+                description: `<h4>风味</h4><p>喝一杯「长安荔枝」，让哥伦比亚的阳光与东方的荔枝香，在舌尖相遇。</p>`
+            },
+            {
+                id: 14,
+                name: "维纳斯瑰夏",
+                origin: "巴拿马",
+                estate: "维纳斯庄园",
+                process: "日晒",
+                flavors: ["杨桃", "水蜜桃", "蜂蜜", "茉莉花", "百香果"],
+                image: "69478e0c30a82.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478e0c30a82.jpg",
+                description: `<h4>风味</h4><p>如果你爱瑰夏的优雅，却想在花香之外寻找更浓郁的“水果炸弹”；如果你迷恋日晒处理的野性，又偏爱甜感与酸度的平衡——那么这支维纳斯瑰夏，便是为你而来。</p>`
+            },
+            {
+                id: 15,
+                name: "鲜花瑰夏",
+                origin: "哥伦比亚",
+                estate: "鲜花庄园",
+                process: "水洗",
+                flavors: ["花香", "树莓", "橙子", "红茶"],
+                image: "69478e0eae1fe.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478e0eae1fe.jpg",
+                description: `<h4>风味</h4><p>花香漫溢的柑橘莓果盛宴。</p>`
+            },
+            {
+                id: 16,
+                name: "蒂薇莎花园",
+                origin: "哥斯达黎加",
+                estate: "蒂薇莎庄园",
+                process: "白蜜",
+                flavors: ["冰镇柠檬汁", "红茶", "杨桃", "高甜感"],
+                image: "69478daaa96aa.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478daaa96aa.jpg",
+                description: `<h4>风味</h4><p>无论是清晨唤醒还是午后小憩，这杯咖啡都能让你在酸甜交织中，感受热带国度的治愈力量。</p>`
+            },
+            {
+                id: 17,
+                name: "Alo",
+                origin: "埃塞俄比亚",
+                estate: "班莎产区Hatesa",
+                process: "经典日晒",
+                flavors: ["荔枝", "芒格", "龙眼"],
+                image: "69478e20a9f45.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478e20a9f45.jpg",
+                description: `<h4>世界之巅</h4><p>极其干净的茉莉花香，如同香水一般。入口是精致的柑橘调性，尾韵带有绿茶的清爽回甘。</p>`
+            },
+            {
+                id: 18,
+                name: "Gonjobe公主病PLUS",
+                origin: "埃塞俄比亚",
+                estate: "阿科露批次",
+                process: "厌氧日晒",
+                flavors: ["复合浆果", "桃子", "暖香料", "红茶"],
+                image: "69478e2125bc2.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478e2125bc2.jpg",
+                description: `<h4>风味</h4><p>不是「娇纵」，是对风味的极致挑剔。当埃塞俄比亚的阳光、阿科露的红果、厌氧日晒的温柔，都浓缩进这一小包豆子，你会明白：有些咖啡，喝的不仅是风味，更是一场关于风土与匠心的浪漫邂逅。</p>`
+            },
+            {
+                id: 19,
+                name: "冬日么么茶",
+                origin: "埃塞俄比亚",
+                estate: "阿拉玛处理站",
+                process: "酵素水洗",
+                flavors: ["薄荷", "花香", "绿茶", "西瓜糖",],
+                image: "69478daacbdcf.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478daacbdcf.jpg",
+                description: `<h4>风味</h4><p>冬日么么茶，不是暖炉旁的厚重拥抱，而是推开窗时，扑面而来的、带着甜味的清新空气。</p>`
+            },
+            {
+                id: 20,
+                name: "春日茉莉",
+                origin: "埃塞俄比亚",
+                estate: "赫拉庄园",
+                process: "新鲜茉莉花窨制",
+                flavors: ["茉莉花香", "柑橘", "蜂蜜"],
+                image: "69478e0db97dc.jpg",
+                fallbackImage: "https://youke2.picui.cn/s1/2025/12/21/69478e0db97dc.jpg",
+                description: `<h4>风味</h4><p>轻啜一口，让茉莉的芬芳与咖啡的醇厚在舌尖绽放，仿佛把整个春天的温柔都喝进了心里。</p>`
+            }
+        ];
+
+        function getFlavorColor(flavor) {
+            if (flavor.includes('柑橘') || flavor.includes('橙') || flavor.includes('柠') || flavor.includes('柚')) return 'flavor-tag-citrus';
+            if (flavor.includes('花') || flavor.includes('玫瑰') || flavor.includes('茉莉')) return 'flavor-tag-floral';
+            if (flavor.includes('糖') || flavor.includes('蜜') || flavor.includes('桃') || flavor.includes('荔枝') || flavor.includes('果')) return 'flavor-tag-sweet';
+            if (flavor.includes('酒') || flavor.includes('发酵') || flavor.includes('葡萄')) return 'flavor-tag-winey';
+            if (flavor.includes('茶')) return 'flavor-tag-tea';
+            if (flavor.includes('巧') || flavor.includes('可可') || flavor.includes('坚果') || flavor.includes('焦糖')) return 'flavor-tag-cocoa';
+            return 'flavor-tag-nutty';
+        }
+
+        window.handleImageError = function(img) {
+            if (img.dataset.hasFallenBack === "true") return;
+            img.dataset.hasFallenBack = "true";
+            const fallbackUrl = img.dataset.fallback;
+            if (fallbackUrl) {
+                img.src = fallbackUrl;
+            }
+        };
+
+        function renderBeans() {
+            const grid = document.getElementById('bean-grid');
+            grid.innerHTML = beansData.map((bean, index) => `
+                <div class="hover-card bg-white rounded-sm overflow-hidden flex flex-col h-full cursor-pointer fade-in-up" 
+                     style="animation-delay: ${Math.min(index * 50, 800)}ms"
+                     onclick="openModal(${bean.id})">
+                    <div class="relative h-56 overflow-hidden group bg-gray-100">
+                        <img src="${bean.image}" 
+                             data-fallback="${bean.fallbackImage}"
+                             onerror="handleImageError(this)"
+                             alt="${bean.name}" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 sepia-[0.1] contrast-95">
+                        
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-[#F3F0E6] text-[#8B2323] text-[10px] font-bold px-2 py-1 rounded-sm border border-[#8B2323]/30 font-serif tracking-widest uppercase">
+                                ${bean.origin.split(' ')[0]}
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 flex-1 flex flex-col border-t border-[#F3F0E6]">
+                        <div class="mb-3">
+                            <h3 class="text-xl font-bold text-[#2B2220] font-serif leading-tight mb-1">${bean.name}</h3>
+                            <p class="text-[10px] text-[#5D4037]/60 uppercase tracking-widest font-serif">${bean.estate}</p>
+                        </div>
+                        
+                        <div class="w-8 h-[1px] bg-[#C5A065] mb-3"></div>
+                        
+                        <p class="text-xs text-[#5D4037] mb-3 font-serif flex items-center gap-2">
+                             ${bean.process} 
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1.5 mb-2 mt-auto">
+                            ${bean.flavors.slice(0, 3).map(f => `
+                                <span class="flavor-tag ${getFlavorColor(f)}">${f}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        const modal = document.getElementById('bean-modal');
+        const modalOverlay = document.getElementById('modal-overlay');
+
+        function openModal(id) {
+            const bean = beansData.find(b => b.id === id);
+            if (!bean) return;
+
+            const modalImg = document.getElementById('modal-image');
+            modalImg.src = bean.image;
+            modalImg.dataset.fallback = bean.fallbackImage;
+            modalImg.dataset.hasFallenBack = "false";
+            const tempImg = new Image();
+            tempImg.src = bean.image;
+            tempImg.onerror = () => { modalImg.src = bean.fallbackImage; };
+
+            document.getElementById('modal-title').innerText = bean.name;
+            document.getElementById('modal-origin').innerHTML = `<span>${bean.origin}</span>`;
+            document.getElementById('modal-process-badge').innerText = bean.process;
+            document.getElementById('modal-estate').innerText = bean.estate;
+            document.getElementById('modal-process').innerText = bean.process;
+            document.getElementById('modal-description').innerHTML = bean.description;
+
+            const flavorsContainer = document.getElementById('modal-flavors');
+            flavorsContainer.innerHTML = bean.flavors.map(f => `
+                <span class="flavor-tag ${getFlavorColor(f)} text-sm px-3 py-1">${f}</span>
+            `).join('');
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                modal.querySelector('.transform').classList.remove('scale-95', 'opacity-0');
+                modal.querySelector('.transform').classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.querySelector('.transform').classList.remove('scale-100', 'opacity-100');
+            modal.querySelector('.transform').classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        const bookingModal = document.getElementById('booking-modal');
+        function openBookingModal() {
+            bookingModal.classList.remove('hidden');
+            setTimeout(() => {
+                 const content = bookingModal.querySelector('.transform');
+                 content.classList.remove('scale-95', 'opacity-0');
+                 content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookingModal() {
+             const content = bookingModal.querySelector('.transform');
+             content.classList.remove('scale-100', 'opacity-100');
+             content.classList.add('scale-95', 'opacity-0');
+             setTimeout(() => {
+                bookingModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // 初始化音频
+        const audio = new Audio();
+        audio.src = musicConfig.url; 
+        audio.loop = true;
+        
+        let isPlaying = false;
+        const musicIcon = document.getElementById('music-icon');
+        const musicWrapper = document.getElementById('music-icon-wrapper');
+        const musicText = document.getElementById('music-text');
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                musicWrapper.classList.remove('border-[#8B2323]');
+                musicWrapper.classList.add('border-[#2B2220]/20');
+                musicIcon.classList.remove('text-[#8B2323]', 'music-spin');
+                musicIcon.classList.add('text-[#2B2220]');
+                musicIcon.className = 'fas fa-music text-xs text-[#2B2220] group-hover:text-[#8B2323]';
+                musicText.innerText = "点击聆听";
+            } else {
+                audio.play().then(() => {
+                    musicWrapper.classList.remove('border-[#2B2220]/20');
+                    musicWrapper.classList.add('border-[#8B2323]');
+                    musicIcon.className = 'fas fa-compact-disc text-xs text-[#8B2323] music-spin';
+                    musicText.innerText = "播放中...";
+                }).catch(err => {
+                    alert("请检查音乐链接是否有效，或浏览器是否拦截了自动播放");
+                });
+            }
+            isPlaying = !isPlaying;
+        }
+
+        modalOverlay.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (!modal.classList.contains('hidden')) closeModal();
+                if (!bookingModal.classList.contains('hidden')) closeBookingModal();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderBeans();
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('navbar');
+                if (window.scrollY > 50) nav.classList.add('shadow-md');
+                else nav.classList.remove('shadow-md');
+            });
+        });
+    </script>
+</body>
+</html>
